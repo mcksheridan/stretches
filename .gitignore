@@ -9,3 +9,7 @@ node.js
 *.json
 node_modules/
 node_modules
+personal.js
+personalworkout.html
+cardioab.html
+cardioab.js

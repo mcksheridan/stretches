@@ -61,7 +61,7 @@
   max-height: 75vh;
 }
 
-.timer {
+.timer, .timer--clicked {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 15% 85%;
@@ -73,6 +73,10 @@
   background-color: #793698;
   height: 2.5rem;
   cursor: pointer;
+}
+
+.timer--clicked {
+  cursor: default;
 }
 
 .timer_countdown, .timer_text {

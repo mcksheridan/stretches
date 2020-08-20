@@ -14,7 +14,11 @@ window.onload = function app() {
         stretchImageImg.alt = exercises[stretchNum].exercise
         stretchImageImg.src = exercises[stretchNum].image
         currentStretch.innerText = exercises[stretchNum].exercise
-        nextStretch.innerText = `Next: ${exercises[(stretchNum += 1)].exercise}`
+        if (stretchNum === exercises.length - 1) {
+            nextStretch.innerText = `Well done!`
+        } else {
+            nextStretch.innerText = `Next: ${exercises[(stretchNum += 1)].exercise}`
+        }
     }
 
     // For the position in the exercises object, e.g. exercises[j]
@@ -40,6 +44,7 @@ window.onload = function app() {
         } else {
             currentStretch.innerText = 'Well done!'
             nextStretch.innerText = ''
+            currentStretchInfo.innerText = ''
         }
     }
 
@@ -57,7 +62,12 @@ window.onload = function app() {
     })
 
     countdownArea.addEventListener('click', () => {
-        timer()
-        countdownText.innerText = ''
+        if (countdownArea.className === 'timer--clicked') {
+            // The style changes to make the timer no longer look clickable
+        } else {
+            timer()
+            countdownText.innerText = ''
+            countdownArea.setAttribute('class', 'timer--clicked')
+        }
     })
 }

@@ -12,7 +12,7 @@ const exercises = [
     {'exercise': 'Glute and Piriformis Stretch (Right)',
     'image': ''},
     {'exercise': 'Chest Stretch',
-    'image': 'stretches/chest-stretch.jpg'},
+    'image': 'stretches/chest-stretch-2.jpg'},
     {'exercise': 'Quad Stretch (Left)',
     'image': 'stretches/quad-stretch.jpg'},
     {'exercise': 'Quad Stretch (Right)',

@@ -72,6 +72,11 @@
     cursor: pointer;
 }
 
+.timer--clicked {
+    @extend .timer;
+    cursor: default;
+}
+
 .timer_countdown {
     color: #fff;
     font-size: 2.5rem;
