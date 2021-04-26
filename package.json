@@ -1,0 +1,42 @@
+{
+  "name": "stretches",
+  "version": "1.0.0",
+  "description": "Stretch timer",
+  "main": "server.js",
+  "dependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/node": "^7.13.0",
+    "@babel/preset-env": "^7.13.9",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node server.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint ./ --ignore-path .gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcksheridan/stretches.git"
+  },
+  "author": "Sheridan McKisick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcksheridan/stretches/issues"
+  },
+  "homepage": "https://github.com/mcksheridan/stretches#readme"
+}
