@@ -1,0 +1,26 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='../stylesheets/style.css')
+    body.page
+        article.stretch-timer
+            h1.stretch-timer__name Routine Name
+            .stretch-timer__stretch-info.stretch-info
+                .stretch-info__current-stretch
+                    p.stretch-info__stretch-name Current Stretch Name
+                    p.stretch-info__stretch-img Current Stretch Image
+                .stretch-info__upcoming-stretch
+                    p.stretch-info__stretch-name Upcoming Stretch Name
+                    p.stretch-info__stretch-img Current Stretch Image
+            .stretch-timer__timer.timer
+                p.timer Timer Component
+                p.timer__restart Restart Timer
+        nav.navigation
+            ul.navigation__list
+                li.navigation__link
+                    a(href='#').navigation__link Choose Another Workout
+                li.navigation__link
+                    a(href='#').navigation__link Create New Workout
