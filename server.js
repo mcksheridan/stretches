@@ -14,7 +14,25 @@ app.get('/', (req, res) => {
 });
 
 app.get('/template', (req, res) => {
-  res.render('template', { title: 'Template Page' });
+  const results = ({
+    routineName: 'Sample Stretch',
+    exercises: [
+      {
+        name: 'Calf Stretch',
+        img: 'j',
+      },
+      {
+        name: 'Figure Four',
+        img: '',
+      },
+      {
+        name: 'Lying Pectoral Stretch',
+        img: '',
+      },
+    ],
+    routineSeconds: 60,
+  });
+  res.render('template', { title: `Routine: ${results.routineName}`, data: results });
 });
 
 app.listen(process.env.PORT || PORT);
