@@ -1,8 +1,12 @@
 import express from 'express';
 import path from 'path';
+import dotenv from 'dotenv';
+import db from './db';
 
 const app = express();
 const PORT = 3000;
+
+dotenv.config();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

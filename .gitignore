@@ -7,3 +7,6 @@ src/personal.js
 src/personalworkout.html
 src/cardioab.html
 src/cardioab.js
+
+.env
+db/tables.txt
