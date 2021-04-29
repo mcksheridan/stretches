@@ -3,8 +3,10 @@ const IMAGE_TEXT = '(View Image)';
 const template = `
       <header class="timer-header">
         <h2><span class="timer-header__seconds"></span> Second Timer</h2>
-        <p>Current Exercise: <span class="timer-header__current-exercise"></p>
-        <p>Upcoming Exercise: <span class="timer-header__upcoming-exercise"></p>
+        <p><span class="timer-header__current-exercise-label">Current Exercise:</span>
+        <span class="timer-header__current-exercise"></span></p>
+        <p><span class="timer-header__upcoming-exercise-label">Upcoming Exercise:</span>
+        <span class="timer-header__upcoming-exercise"></span></p>
       </header>
 
       <main>
