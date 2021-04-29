@@ -4,17 +4,21 @@
   font-family: "Abel", sans-serif;
 }
 
-.timer-header__current-exercise-label {
+.current-exercise {
   font-weight: bold;
   font-size: 1.25rem;
 }
 
-.timer-header__current-exercise {
+.current-exercise__name {
   font-weight: bold;
   font-size: 1.25rem;
 }
 
-.timer-header__upcoming-exercise-label {
+.current-exercise__image-modal {
+  display: none;
+}
+
+.upcoming-exercise__name {
   font-weight: bold;
 }
 

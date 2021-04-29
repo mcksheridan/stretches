@@ -3,10 +3,14 @@ const IMAGE_TEXT = '(View Image)';
 const template = `
       <header class="timer-header">
         <h2><span class="timer-header__seconds"></span> Second Timer</h2>
-        <p><span class="timer-header__current-exercise-label">Current Exercise:</span>
-        <span class="timer-header__current-exercise"></span></p>
-        <p><span class="timer-header__upcoming-exercise-label">Upcoming Exercise:</span>
-        <span class="timer-header__upcoming-exercise"></span></p>
+        <p><span class="timer-header__current-exercise current-exercise">Current Exercise:</span>
+        <span class="current-exercise__name"></span>
+        <button class="current-exercise__image"></button></p>
+        <div class="current-exercise__image-modal image-modal">
+        <img src="" class="image-modal__image" alt="">
+        </div>
+        <p><span class="timer-header__upcoming-exercise upcoming-exercise">Upcoming Exercise:</span>
+        <span class="upcoming-exercise__name"></span></p>
       </header>
 
       <main>
@@ -69,8 +73,8 @@ class Timer extends HTMLElement {
     const timerRemainingTime = this.querySelector('.timer-bar__remaining-time');
     const timerButton = this.querySelector('.timer-button__control');
     const timerHeaderSeconds = this.querySelector('.timer-header__seconds');
-    const timerHeaderCurrentExercise = this.querySelector('.timer-header__current-exercise');
-    const timerHeaderUpcomingExercise = this.querySelector('.timer-header__upcoming-exercise');
+    const timerHeaderCurrentExercise = this.querySelector('.current-exercise__name');
+    const timerHeaderUpcomingExercise = this.querySelector('.upcoming-exercise__name');
     timerRemainingTime.innerHTML = this.startingTime;
     timerButton.innerHTML = 'Touch to Begin';
     timerHeaderSeconds.innerText = this.startingTime;
@@ -184,8 +188,8 @@ class Timer extends HTMLElement {
     const timerRemainingTime = this.querySelector('.timer-bar__remaining-time');
     const timerButton = this.querySelector('.timer-button__control');
     const timerProgressBar = this.querySelector('.timer-bar__progress');
-    const currentExercise = this.querySelector('.timer-header__current-exercise');
-    const upcomingExercise = this.querySelector('.timer-header__upcoming-exercise');
+    const currentExercise = this.querySelector('.current-exercise__name');
+    const upcomingExercise = this.querySelector('.upcoming-exercise__name');
     timerRemainingTime.innerHTML = this.remainingTime;
     timerButton.innerHTML = this.message;
     timerProgressBar.setAttribute('width', `${this.progressPercent}%`);

@@ -1,15 +1,19 @@
 @import './util';
 
-.timer-header {
-  &__current-exercise-label {
+.current-exercise {
+  font-weight: bold;
+  font-size: 1.25rem;
+  &__name {
     font-weight: bold;
     font-size: 1.25rem;
   }
-  &__current-exercise {
-    font-weight: bold;
-    font-size: 1.25rem;
+  &__image-modal {
+    display: none;
   }
-  &__upcoming-exercise-label {
+}
+
+.upcoming-exercise {
+  &__name {
     font-weight: bold;
   }
 }
