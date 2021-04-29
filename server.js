@@ -17,7 +17,17 @@ app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'src')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/html/index.html'));
+  async function getListOfRoutines() {
+    try {
+      const query = await db.query('SELECT name, routine_id FROM routines ORDER BY lower(name)');
+      const results = query.rows;
+      res.render('routine-list', { title: 'Stretch Timer', data: results });
+    } catch (error) {
+      console.error(error.stack);
+      res.status(500).send('Error');
+    }
+  }
+  getListOfRoutines();
 });
 
 app.get('/routine/:id', (req, res) => {
@@ -37,6 +47,7 @@ app.get('/routine/:id', (req, res) => {
         const exerciseArray = exercise.split('"');
         // Index 0 is '{', index 1 is the object key, index 2 is ':'
         // Index 3 is the object value, index 4 is '}'
+        // eslint-disable-next-line prefer-destructuring
         exerciseObject[exerciseArray[1]] = exerciseArray[3];
         results.exercises.splice(index, 1, exerciseObject);
       });
