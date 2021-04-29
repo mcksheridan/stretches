@@ -5,6 +5,17 @@
     background-size: auto 100vh;
 }
 
+.instructions {
+    @include highContrastLink('&__button', $pale-yellow, #000);
+    &__button {
+        border: 0px;
+        background-color: inherit;
+        font-size: 1rem;
+        text-decoration: underline;
+        color: #fff;
+    }
+}
+
 .stretch-timer {
     width: 95vw;
     margin: 0 auto;
@@ -24,17 +35,22 @@
 
 .navigation {
     position: absolute;
+    left: 0%;
     bottom: 5%;
     width: 95%;
     &__list {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+        padding-left: 0;
     }
+    @include highContrastLink('&__link', $dark-yellow, #fff);
     &__link {
         list-style-type: none;
         font-weight: bold;
         text-decoration: none;
+        font-size: 1.25rem;
+        color: black;
     }
 }
 
