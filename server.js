@@ -40,7 +40,7 @@ app.get('/routine/:id', (req, res) => {
         exerciseObject[exerciseArray[1]] = exerciseArray[3];
         results.exercises.splice(index, 1, exerciseObject);
       });
-      res.render('template', { title: `Routine: ${results.name}`, data: results });
+      res.render('routine', { title: `Routine: ${results.name}`, data: results });
     } catch (error) {
       res.status(500).send('An error occured while retrieving this routine');
       console.error(error.stack);
@@ -66,7 +66,7 @@ app.get('/template', (req, res) => {
     ],
     routineSeconds: 60,
   });
-  res.render('template', { title: `Routine: ${results.routineName}`, data: results });
+  res.render('routine', { title: `Routine: ${results.routineName}`, data: results });
 });
 
 app.get('/add', (req, res) => {

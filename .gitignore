@@ -10,3 +10,5 @@ src/cardioab.js
 
 .env
 db/tables.txt
+
+tasks.txt
