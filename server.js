@@ -20,6 +20,35 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/html/index.html'));
 });
 
+app.get('/routine/:id', (req, res) => {
+  const routineId = req.params.id;
+  // eslint-disable-next-line consistent-return
+  async function getRoutine() {
+    const text = 'SELECT * FROM routines WHERE routine_id = $1';
+    const values = [routineId];
+    try {
+      const query = await db.query(text, values);
+      const results = query.rows[0];
+      /* The exercise from the results will return as an object wrapped inside of a string
+      and cannot be directly manipulated in our view. I mutate this exercise array with
+      an actual array of objects that can be used in our template engine. */
+      results.exercises.forEach((exercise, index) => {
+        const exerciseObject = {};
+        const exerciseArray = exercise.split('"');
+        // Index 0 is '{', index 1 is the object key, index 2 is ':'
+        // Index 3 is the object value, index 4 is '}'
+        exerciseObject[exerciseArray[1]] = exerciseArray[3];
+        results.exercises.splice(index, 1, exerciseObject);
+      });
+      res.render('template', { title: `Routine: ${results.name}`, data: results });
+    } catch (error) {
+      res.status(500).send('An error occured while retrieving this routine');
+      console.error(error.stack);
+    }
+  }
+  getRoutine();
+});
+
 app.get('/template', (req, res) => {
   const results = ({
     routineName: 'Sample Stretch',

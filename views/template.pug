@@ -8,16 +8,16 @@ html(lang='en')
         link(rel='stylesheet', href='../stylesheets/timer.css')
     body.page
         article.stretch-timer
-            h1.stretch-timer__name=data.routineName
+            h1.stretch-timer__name=data.name
             p.stretch-timer__instructions.instructions Do each exercise for
-                span.instructions__seconds  !{data.routineSeconds} 
+                span.instructions__seconds  !{data.seconds} 
                 | seconds
             ol.stretch-timer__routine.routine
                 each exercise in data.exercises
-                    li.routine__exercise-name=exercise.name
+                    li.routine__exercise-name=exercise['name']
                         if (exercise.img)
                             a(href=exercise.img).exercise-img  (View Image)
-            timer-object(time=data.routineSeconds)
+            timer-object(time=data.seconds)
             script(src='../scripts/timer.js' type='module')
             script(src='../scripts/exerciseListUI.js')
         nav.navigation
