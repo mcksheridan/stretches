@@ -20,13 +20,13 @@ html(lang='en')
                 section(class=`form__section section exercise-section`)
                     h2.section__title Exercise !{n}
                     if n < 3
-                        label.section__label(for='exercise-name' maxlength='40') Exercise !{n} name (required)
-                        input(type='text' required).section__input.section__exercise-name
+                        label.section__label(for='exercise-name') Exercise !{n} name (required)
+                        input(type='text' name='exercise-name' required).section__input.section__exercise-name
                     else
                         label.section__label Exercise !{n} name (optional)
-                        input(type='text' maxlength='40').section__input.section__exercise-name
-                    label.section__label Exercise !{n++} image (optional)
-                    input(type='url', placeholder=`http://` maxlength='256').section__input.section__exercise-img
+                        input(type='text' name='exercise-name' maxlength='40').section__input.section__exercise-name
+                    label.section__label(for='exercise-image') Exercise !{n++} image (optional)
+                    input(type='url' name='exercise-image' placeholder=`http://` maxlength='256').section__input.section__exercise-img
             .form__add-more.add-more
             script(src='../scripts/form.js')
             .form__action-buttons
