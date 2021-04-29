@@ -2,11 +2,11 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 .page {
   background: linear-gradient(179.96deg, #793698 0.02%, rgba(255, 255, 255, 0) 99.98%);
+  font-family: "Abel", sans-serif;
 }
 
 .form {
   text-align: center;
-  font-family: "Abel", sans-serif;
   max-width: 450px;
   margin-left: auto;
   margin-right: auto;
@@ -39,6 +39,7 @@
 }
 
 .add-more__button {
+  font-family: "Abel", sans-serif;
   font-size: 1.25rem;
   width: 100%;
   background-color: #c190d7;
@@ -47,10 +48,34 @@
 }
 
 .action-buttons {
+  font-family: "Abel", sans-serif;
   width: 50%;
   font-size: 1.25rem;
   background-color: #793698;
   color: #fff;
+}
+
+.navigation {
+  padding: 1rem;
+  text-align: center;
+}
+
+.navigation__link:hover {
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  background-color: #777700;
+  color: #fff;
+}
+
+.navigation__link:active {
+  background-color: inherit;
+  color: #444;
+}
+
+.navigation__link {
+  color: black;
 }
 
 .material-icons {

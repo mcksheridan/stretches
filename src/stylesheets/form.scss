@@ -1,12 +1,7 @@
 @import './util';
 
-.page {
-    background: $purple-gradient;
-}
-
 .form {
     text-align: center;
-    font-family: $font;
     max-width: 450px;
     margin-left: auto;
     margin-right: auto;
@@ -33,6 +28,7 @@
 }
 
 .add-more__button {
+    font-family: $font;
     font-size: 1.25rem;
     width: 100%;
     background-color: lighten($darker-color, 30%);
@@ -41,10 +37,20 @@
 }
 
 .action-buttons {
+    font-family: $font;
     width: 50%;
     font-size: 1.25rem;
     background-color: $darker-color;
     color: #fff;
+}
+
+.navigation {
+    padding: 1rem;
+    text-align: center;
+    @include highContrastLink('&__link', $dark-yellow, #fff);
+    &__link {
+        color: black;
+    }
 }
 
 .material-icons {
