@@ -49,26 +49,6 @@ app.get('/routine/:id', (req, res) => {
   getRoutine();
 });
 
-app.get('/template', (req, res) => {
-  const results = ({
-    routineName: 'Sample Stretch',
-    exercises: [
-      {
-        name: 'Calf Stretch',
-        img: 'j',
-      },
-      {
-        name: 'Figure Four',
-      },
-      {
-        name: 'Lying Pectoral Stretch',
-      },
-    ],
-    routineSeconds: 60,
-  });
-  res.render('routine', { title: `Routine: ${results.routineName}`, data: results });
-});
-
 app.get('/add', (req, res) => {
   res.render('add-routine', { title: 'Add a Routine' });
 });
