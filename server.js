@@ -40,11 +40,11 @@ app.get('/template', (req, res) => {
   res.render('template', { title: `Routine: ${results.routineName}`, data: results });
 });
 
-app.get('/form', (req, res) => {
+app.get('/add', (req, res) => {
   res.render('add-routine', { title: 'Add a Routine' });
 });
 
-app.post('/form', (req, res) => {
+app.post('/add', (req, res) => {
   const routineName = req.body['routine-name'].trim();
   const routineSeconds = req.body['routine-seconds'].trim();
   const exerciseNames = req.body['exercise-name'];
