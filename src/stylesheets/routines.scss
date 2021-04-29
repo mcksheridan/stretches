@@ -1,0 +1,32 @@
+@import './util';
+
+.routines {
+    width: 95vw;
+    margin: 0 auto;
+    text-align: center;
+    font-family: $font;
+    &__title {
+        color: white;
+        font-size: $header-size + 1rem;
+    }
+    @include highContrastLink('&__add', $pale-yellow, #000);
+    &__add {
+        font-size: $header-size / 1.25;
+        color: white;
+    }
+    &__subheader {
+        margin-top: $header-size + 1rem;
+    }
+}
+
+.list {
+    list-style-type: none;
+    padding-left: 0;
+    &__item {
+        margin-bottom: 1.5rem;
+    }
+    @include highContrastLink('&__link', $dark-yellow, #fff);
+    &__link {
+        color: black;
+    }
+}

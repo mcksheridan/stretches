@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+.page {
+  background: linear-gradient(179.96deg, #793698 0.02%, rgba(255, 255, 255, 0) 99.98%);
+  font-family: "Abel", sans-serif;
+}
+
+.routines {
+  width: 95vw;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Abel", sans-serif;
+}
+
+.routines__title {
+  color: white;
+  font-size: 3rem;
+}
+
+.routines__add:hover {
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  background-color: #ffa;
+  color: #000;
+}
+
+.routines__add:active {
+  background-color: inherit;
+  color: #444;
+}
+
+.routines__add {
+  font-size: 1.6rem;
+  color: white;
+}
+
+.routines__subheader {
+  margin-top: 3rem;
+}
+
+.list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.list__item {
+  margin-bottom: 1.5rem;
+}
+
+.list__link:hover {
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  background-color: #777700;
+  color: #fff;
+}
+
+.list__link:active {
+  background-color: inherit;
+  color: #444;
+}
+
+.list__link {
+  color: black;
+}
+/*# sourceMappingURL=routines.css.map */
