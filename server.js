@@ -39,4 +39,11 @@ app.get('/template', (req, res) => {
   res.render('template', { title: `Routine: ${results.routineName}`, data: results });
 });
 
+app.get('/form', (req, res) => {
+  res.render('add-routine', { title: 'Add a Routine' });
+});
+
+app.post('/form', (req, res) => {
+});
+
 app.listen(process.env.PORT || PORT);
