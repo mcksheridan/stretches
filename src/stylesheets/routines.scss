@@ -1,5 +1,10 @@
 @import './util';
 
+.page {
+    background: $purple-gradient;
+    // background-size: auto 100vh;
+}
+
 .routines {
     width: 95vw;
     margin: 0 auto;
