@@ -1,0 +1,52 @@
+@import './util';
+
+.page {
+    background: $purple-gradient;
+}
+
+.form {
+    text-align: center;
+    font-family: $font;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    &__title {
+        color: white;
+    }
+    &__section {
+        background-color: lighten($darker-color, 45%);
+        border: 1px solid $darker-color;
+        border-radius: 1vw;
+        padding: 1vw;
+    }
+    &__action-buttons {
+        display: flex;
+        margin: 1rem auto;
+    }
+}
+
+.section {
+    text-align: left;
+    &__label {
+        display: block;
+    }
+}
+
+.add-more__button {
+    font-size: 1.25rem;
+    width: 100%;
+    background-color: lighten($darker-color, 30%);
+    padding: 0.25rem;
+    margin: 0.5rem auto;
+}
+
+.action-buttons {
+    width: 50%;
+    font-size: 1.25rem;
+    background-color: $darker-color;
+    color: #fff;
+}
+
+.material-icons {
+    font-size: 1rem;
+}

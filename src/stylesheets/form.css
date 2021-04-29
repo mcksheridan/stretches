@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+.page {
+  background: linear-gradient(179.96deg, #793698 0.02%, rgba(255, 255, 255, 0) 99.98%);
+}
+
+.form {
+  text-align: center;
+  font-family: "Abel", sans-serif;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form__title {
+  color: white;
+}
+
+.form__section {
+  background-color: #e0c8eb;
+  border: 1px solid #793698;
+  border-radius: 1vw;
+  padding: 1vw;
+}
+
+.form__action-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem auto;
+}
+
+.section {
+  text-align: left;
+}
+
+.section__label {
+  display: block;
+}
+
+.add-more__button {
+  font-size: 1.25rem;
+  width: 100%;
+  background-color: #c190d7;
+  padding: 0.25rem;
+  margin: 0.5rem auto;
+}
+
+.action-buttons {
+  width: 50%;
+  font-size: 1.25rem;
+  background-color: #793698;
+  color: #fff;
+}
+
+.material-icons {
+  font-size: 1rem;
+}
+/*# sourceMappingURL=form.css.map */
