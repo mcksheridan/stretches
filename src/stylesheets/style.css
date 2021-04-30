@@ -6,7 +6,7 @@
 
 .page {
   background: linear-gradient(179.96deg, #793698 0.02%, rgba(255, 255, 255, 0) 99.98%);
-  background-size: auto 100vh;
+  min-height: 95vh;
 }
 
 .instructions__button:hover {
