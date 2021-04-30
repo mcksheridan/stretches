@@ -49,6 +49,12 @@ app.get('/routine/:id', (req, res) => {
         // Index 3 is the object value, index 4 is '}'
         // eslint-disable-next-line prefer-destructuring
         exerciseObject[exerciseArray[1]] = exerciseArray[3];
+        // If there is an index, index 4 is ',', index 5 is the object key
+        // Index 6 is ':', and index 7 is the object value
+        if (exerciseArray[5]) {
+          // eslint-disable-next-line prefer-destructuring
+          exerciseObject[exerciseArray[5]] = exerciseArray[7];
+        }
         results.exercises.splice(index, 1, exerciseObject);
       });
       res.render('routine', { title: `Routine: ${results.name}`, data: results });
