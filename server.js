@@ -92,11 +92,15 @@ app.post('/add', (req, res) => {
       res.status(500).send('An error occured while adding this list');
     }
   }
-  async function addRoutineToDatabase() {
-    const text = 'INSERT INTO routines(name, seconds, exercises) VALUES($1, $2, $3)';
+  async function addRoutineToDatabaseAndReturnId() {
+    const text = 'INSERT INTO routines(name, seconds, exercises) VALUES($1, $2, $3) RETURNING routine_id';
     const values = [routineName, routineSeconds, exerciseArray];
     try {
-      await db.query(text, values);
+      const query = await db.query(text, values);
+      console.log(query.rows);
+      const results = query.rows[0];
+      console.log(results);
+      return results.routine_id;
     } catch (error) {
       console.error(error.stack);
       res.status(500).send('An error occured while creating this routine');
@@ -106,8 +110,8 @@ app.post('/add', (req, res) => {
     const isRoutineDuplicate = await checkDuplicateRoutines();
     if (!isRoutineDuplicate) {
       try {
-        await addRoutineToDatabase();
-        res.redirect('/');
+        const routineId = await addRoutineToDatabaseAndReturnId();
+        res.redirect(`/routine/${routineId}`);
       } catch (error) {
         console.error(error.stack);
       }
