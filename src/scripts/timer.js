@@ -5,9 +5,8 @@ const template = `
         <h2><span class="timer-header__seconds"></span> Second Timer</h2>
         <p><span class="timer-header__current-exercise current-exercise">Current Exercise:</span>
         <span class="current-exercise__name"></span>
-        <button class="current-exercise__image"></button></p>
+        <button type="button" class="current-exercise__image"><span class="material-icons">image</span></button></p>
         <div class="current-exercise__image-modal image-modal">
-        <img src="" class="image-modal__image" alt="">
         </div>
         <p><span class="timer-header__upcoming-exercise upcoming-exercise">Upcoming Exercise:</span>
         <span class="upcoming-exercise__name"></span></p>
@@ -67,6 +66,7 @@ class Timer extends HTMLElement {
     this.exercise = exercises;
     this.currentExercise = 0;
     this.routineLength = this.exercise.length - 1;
+    this.imageState = 'hidden'; // Hidden or visible
   }
 
   connectedCallback() {
@@ -75,6 +75,7 @@ class Timer extends HTMLElement {
     const timerHeaderSeconds = this.querySelector('.timer-header__seconds');
     const timerHeaderCurrentExercise = this.querySelector('.current-exercise__name');
     const timerHeaderUpcomingExercise = this.querySelector('.upcoming-exercise__name');
+    const exerciseImageButton = document.querySelector('.current-exercise__image');
     timerRemainingTime.innerHTML = this.startingTime;
     timerButton.innerHTML = 'Touch to Begin';
     timerHeaderSeconds.innerText = this.startingTime;
@@ -96,6 +97,15 @@ class Timer extends HTMLElement {
         this.resetTimer();
         clearInterval(this.interval);
         this.beginTimer();
+      }
+    });
+    exerciseImageButton.addEventListener('click', () => {
+      if (this.imageState === 'hidden') {
+        this.showImage();
+        return;
+      }
+      if (this.imageState === 'visible') {
+        this.hideImage();
       }
     });
   }
@@ -184,6 +194,21 @@ class Timer extends HTMLElement {
     this.updateTimerUI();
   }
 
+  showImage() {
+    this.imageState = 'visible';
+  }
+
+  hideImage() {
+    this.imageState = 'hidden';
+  }
+
+  hasImage() {
+    if (this.exercise[this.currentExercise].img) {
+      return true;
+    }
+    return false;
+  }
+
   updateTimerUI() {
     const timerRemainingTime = this.querySelector('.timer-bar__remaining-time');
     const timerButton = this.querySelector('.timer-button__control');
@@ -203,14 +228,37 @@ class Timer extends HTMLElement {
       timerButton.classList.add('timer__message--paused');
     }
     // Update current/upcoming exercise
+    const exerciseImageButton = document.querySelector('.current-exercise__image');
+    const exerciseImageModal = document.querySelector('.current-exercise__image-modal');
     if (this.currentExercise <= this.routineLength) {
       currentExercise.textContent = this.exercise[this.currentExercise].name;
+      if (this.hasImage()) {
+        exerciseImageButton.style.display = 'inline';
+      }
+      if (!this.hasImage()) {
+        exerciseImageButton.style.display = 'none';
+      }
     }
     if (this.currentExercise < this.routineLength) {
       upcomingExercise.textContent = this.exercise[this.currentExercise + 1].name;
     }
     if (this.currentExercise === this.routineLength) {
       upcomingExercise.textContent = 'Good job!';
+    }
+    if (this.imageState === 'hidden') {
+      exerciseImageModal.style.display = 'none';
+      exerciseImageButton.innerHTML = `
+      <span class="material-icons">image</span>
+      `;
+    }
+    if (this.imageState === 'visible') {
+      exerciseImageModal.style.display = 'block';
+      exerciseImageModal.innerHTML = `
+      <img src="${this.exercise[this.currentExercise].img}" class="image-modal__image" alt="Image of exercise ${this.exercise[this.currentExercise].name}">
+      `;
+      exerciseImageButton.innerHTML = `
+      <span class="material-icons">close</span>
+      `;
     }
   }
 
