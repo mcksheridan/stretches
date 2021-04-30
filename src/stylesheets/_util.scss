@@ -13,7 +13,6 @@ $dark-yellow: darken($pale-yellow, 60%);
 //Mixins
 @mixin highContrastLink($link, $bgcolor, $textcolor) {
     #{$link}:hover {
-        // transition-property: background-color;
         transition-duration: 0.5s;
         transition-timing-function: ease-in-out;
         background-color: $bgcolor;
@@ -25,7 +24,17 @@ $dark-yellow: darken($pale-yellow, 60%);
     }
 }
 
+@mixin whiteTextFallback {
+    color: #fff;
+    background-color: #7c3b9a;
+    background-color: unset;
+}
+
 // For all pages
 .page {
     font-family: $font;
+    background-color: #b793c8;
+    background-color: unset;
+    background-image: $purple-gradient;
+    background-repeat: no-repeat;
 }
