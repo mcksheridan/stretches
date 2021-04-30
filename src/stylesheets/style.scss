@@ -35,15 +35,17 @@
 }
 
 .navigation {
-    position: absolute;
-    left: 0%;
-    bottom: 5%;
-    width: 95%;
+    margin-top: 10rem;
     &__list {
         display: flex;
+        flex-direction: column;
+        text-align: center;
         justify-content: space-around;
         flex-wrap: wrap;
         padding-left: 0;
+        @media (min-width: 450px) {
+            flex-direction: row;
+        }
     }
     @include highContrastLink('&__link', $dark-yellow, #fff);
     &__link {
