@@ -237,6 +237,7 @@ class Timer extends HTMLElement {
       }
       if (!this.hasImage()) {
         exerciseImageButton.style.display = 'none';
+        this.imageState = 'hidden';
       }
     }
     if (this.currentExercise < this.routineLength) {
